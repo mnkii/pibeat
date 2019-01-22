@@ -1,0 +1,16 @@
+<div class="sequencer">
+  <div class="row no-gutters" *ngFor="let step of compositionService.sequence; let i = index; trackBy: trackByIndex;" [class.bg-primary]="playbackService.position == i">
+      <div class="col" *ngFor="let drum of compositionService.sequence[i]; let d = index; trackBy: trackByIndex;" >
+        <input type="checkbox" id="{{ i + '_' + d }}" [(ngModel)]="compositionService.sequence[i][d]" />
+        <label [ngClass]="classes[d % classes.length]" for="{{ i + '_' + d }}"></label>
+      </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col">
+      <button type="button" class="btn btn-secondary mr-sm-2 btn-block" (click)="addBeat()">Add Beat</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-secondary btn-block" (click)="removeBeat()" [disabled]="compositionService.sequence.length <= 1">Remove Beat</button>
+    </div>
+  </div>
+</div>

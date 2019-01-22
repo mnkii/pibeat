@@ -1,0 +1,13 @@
+<div class="row no-gutters mb-2">
+  <div class="col col-md-3 pr-2">
+    <button type="button" class="btn btn-primary btn-block" (click)="toggleStartStop()">{{ playbackService.isPlaying == true ? 'Stop' : 'Play' }}</button>
+  </div>
+  <div class="col col-md-3">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="BPM">BPM</span>
+      </div>
+      <input type="number" class="form-control" aria-label="BPM" [(ngModel)]="compositionService.bpm" (change)="changeBpm()" min="10" max="400" step="1" />
+    </div>
+  </div>
+</div>
