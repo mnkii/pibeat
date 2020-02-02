@@ -1,2 +1,2 @@
 aiohttp==3.5.4
-gevent_socketio==0.3.6
+python-socketio==4.3.1
